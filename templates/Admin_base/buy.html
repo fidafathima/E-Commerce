@@ -1,0 +1,27 @@
+{% extends 'Customer_base/customer_page.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container-fluid">
+    <div class="card">
+        <form method="post">
+            {% csrf_token %}
+            <div class="container">
+                <div class="form-group">
+                <label class="form-control-label">user</label>
+                <input required class="form-control" readonly value="{{form.item}}">
+            </div>
+          <div class="form-group">
+                <label class="form-control-label">Feedback</label>
+                <input required class="form-control" readonly value="{{form.product.cost}}">
+          </div>
+                <div class="form-group">
+                <label class="form-control-label">Total</label>
+                    <input required class="form-control" readonly value="{{form.product.cost}}">
+                </div>
+                <button type="submit">Proceed</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

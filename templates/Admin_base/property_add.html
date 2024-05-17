@@ -1,0 +1,16 @@
+{% extends 'Admin_base/admin_page.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container-fluid">
+  <div class="card">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="container">
+      {{form|crispy}}
+    </div>
+       <button class="form-btn primary-default-btn transparent-btn" type="submit" >Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

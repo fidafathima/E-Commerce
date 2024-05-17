@@ -1,0 +1,40 @@
+{% extends 'Customer_base/customer_page.html' %}
+{% block content %}
+{% load static %}
+      <br>
+		<div class="d-grid gap-2 d-md-block">
+	      <a class="btn btn-primary" type="submit" href="{% url 'products' %}">All products</a>
+			{% for i in cat %}
+		  <a class="btn btn-primary" type="submit" href="{% url 'cProductView' i.id %}">{{i.category1}}</a>
+			{% endfor %}
+		</div>
+
+
+		<div class="untree_co-section product-section before-footer-section">
+		    <div class="container">
+		      	<div class="row">
+                  {% for i in product %}
+		      		<!-- Start Column 1 -->
+
+					<div class="col-12 col-md-4 col-lg-3 mb-5">
+						<form method="post">
+						  {% csrf_token %}
+						<a type="submit" class="product-item" href="{% url 'oneItem' i.id %}">
+							<img src=" {{i.image2.url}} " class="img-fluid product-thumbnail">
+							<h3 class="product-title">{{i.name}}</h3>
+							<strong class="product-price">{{i.cost}}</strong>
+
+							<span class="icon-cross">
+								<img src=" {% static 'home/images/cross.svg' %} "  class="img-fluid">
+							</span>
+
+						</a></form>
+					</div>
+
+					{% endfor %}
+
+		      	</div>
+		    </div>
+		</div>
+{% endblock %}
+

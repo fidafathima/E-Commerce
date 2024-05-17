@@ -1,0 +1,22 @@
+{% extends 'Customer_base/customer_page.html' %}
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>SL.No</th>
+      <th>Notification</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in form %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.title}}</td>
+      <td>{{i.date}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

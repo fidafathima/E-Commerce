@@ -1,0 +1,48 @@
+{% extends 'Manager_base/manager_page.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<body>
+  <div class="layer"></div>
+ <main class="page-center" >
+  <article class="sign-up" style="width:600px;">
+    <form class="sign-up-form form" enctype="multipart/form-data" method="post">
+      {% csrf_token %}
+      <label class="form-label-wrapper">
+        <p class="form-label">Category</p>
+         {{form.category}}
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">Product</p>
+        {{form.product}}
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">Description</p>
+        {{form.description}}
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">Brand</p>
+        {{form.brand}}
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">Code</p>
+        {{form.code}}
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">image</p>
+        {{form.image}}
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">Price</p>
+<!--        <input class="form-input" type="number" placeholder="Enter your address" required value="">-->
+        {{form.price}}
+      </label>
+       <label class="form-label-wrapper">
+        <p class="form-label">Stock</p>
+<!--        <input class="form-input" type="number" placeholder="Enter your address" required value="">-->
+        {{form.stock}}
+      </label>
+      <button class="form-btn primary-default-btn transparent-btn" type="submit">Submit</button>
+    </form>
+  </article>
+</main>
+{% endblock %}

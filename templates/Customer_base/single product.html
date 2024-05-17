@@ -1,0 +1,44 @@
+
+{% extends 'Customer_base/customer_page.html' %}
+{% block content %}
+
+<div class="card" style="width:100%">
+  <div>
+     <img src={{item.image.url}} class="card-img-top,img0" alt="image" style="width:50%">
+</div>
+  <div class="card-body">
+    <p class="card-title">{{item.name}}</p>
+    <p class="card-title">{{item.brand}}</p>
+    <p class="card-title">$ {{item.cost}}</p>
+  </div >
+      <form action="" method="post" class="d-grid gap-2 d-md-block">
+      {% csrf_token %}
+      <a type="submit" class="btn btn-black" href="{% url 'addCart' item.id %}" style="margin bottom:20px">
+        Add To Cart
+      </a>
+
+      </form>
+     <br>
+</div>
+
+    <div class="card" style="width:100%">
+        {% for i in review %}
+         <div class="card-body">
+       <p class="card-title">{{i.subject}}</p>
+        <img src={{i.image.url}} style="width:10rem">
+        </div>
+        {% endfor %}
+    </div>
+
+
+<div class="card" style="width:100%">
+         <div class="card-body">
+      <form action="" method="post" class="d-grid gap-2 d-md-block">
+      {% csrf_token %}
+      <a type="submit" class="btn btn-black" href="{% url 'review' item.id %}" style="padding bottom:20px" >
+        Review
+      </a>
+      </form>
+         </div>
+</div>
+{% endblock %}

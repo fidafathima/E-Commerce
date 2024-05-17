@@ -1,0 +1,28 @@
+{% extends 'Customer_base/customer_page.html' %}
+{% block content %}
+
+<div class="card" style="width:100%" >
+  <div>
+     <img src={{item.image.url}} class="card-img-top" alt="image" style="width:50%">
+
+</div>
+  <div class="card-body">
+    <p class="card-title">{{item.product}}</p>
+    <p class="card-title">{{item.brand}}</p>
+    <p class="card-title">$ {{item.price}}per day</p>
+    {% if item.stock >= 1 %}
+      <p class="card-title"> Available stock:{{item.stock}}</p>
+     {% elif item.stock <= 1 %}
+      <p class="card-title">Not available</p>
+      {% endif %}
+  </div >
+<form action="" method="post" class="d-grid gap-2 d-md-block">
+      {% csrf_token %}
+      <a type="submit" class="btn btn-black" href="{% url 'rentalRequest' item.id %}">
+       Request
+      </a>
+      </form>
+</div>
+
+
+{% endblock %}
